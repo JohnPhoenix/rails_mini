@@ -1,0 +1,15 @@
+= simple_form_for @project do |f|
+  = f.input :name, :hint => 'The title of your taxanomy'
+
+
+  .tab-content
+    #tasks.tab-pane.active role='tabpanel'
+      = f.simple_fields_for :tasks do |task|
+        = render 'task_fields', :f => task
+      .links
+        = link_to_add_association 'add attribute  ', f, :tasks
+
+
+
+  .actions
+    = f.button :submit, :disable_with => 'Please wait ...'

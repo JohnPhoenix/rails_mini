@@ -1,0 +1,25 @@
+
+h3 = link_to 'HOME', projects_path
+h3 Tasks
+
+p
+  | List here
+
+table.table
+  -@project.tasks.each do |task|
+    tr
+      td= task.name
+      td= task.description
+      td= task.done
+
+h3 Tags
+
+table.table
+  -@project.tags.each do |tag|
+    tr
+      td= tag.name
+
+
+= link_to 'Edit', edit_project_path(@project)
+= '|'
+= link_to 'Back', projects_path
